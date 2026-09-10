@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         _pieces = new Piece[,] { 
             { new Rook(PieceColor.White), new Knight(PieceColor.White), new Bishop(PieceColor.White), new King(PieceColor.White), new Queen(PieceColor.White), new Bishop(PieceColor.White), new Knight(PieceColor.White), new Rook(PieceColor.White)},
-            { new Pawn(PieceColor.White), new Pawn(PieceColor.White), new Pawn(PieceColor.White), new Pawn(PieceColor.White), null, new Pawn(PieceColor.White), new Pawn(PieceColor.White), new Pawn(PieceColor.White)}, 
+            { new Pawn(PieceColor.White), new Pawn(PieceColor.White), new Pawn(PieceColor.White), new Pawn(PieceColor.White), null, new Pawn(PieceColor.White), null, null}, 
             { null, null, null, null, new Pawn(PieceColor.White), null, null, null}, 
             { null, null, null, null, null, null, null, null}, 
             { null, null, null, null, null, null, null, null}, 
@@ -90,13 +90,14 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             if (_pieces[_caseSelectedPos.y, _caseSelectedPos.x] != null)
             {
                 Debug.Log(_pieces[_caseSelectedPos.y, _caseSelectedPos.x].GetMovements(_pieces).Count);
-                //List<Vector2Int> mouv = _pieces[_caseSelectedPos.y, _caseSelectedPos.x].GetMovements(_pieces);
+                List<Vector2Int> mouv = _pieces[_caseSelectedPos.y, _caseSelectedPos.x].GetMovements(_pieces);
 
                 
-                // for (int i = 0; i < mouv.Count; i++)
-                // {
-                //     Drawn(new Vector3Int(mouv[i].x, mouv[i].y), _redMouvementTile);
-                // }
+                for (int i = 0; i < mouv.Count; i++)
+                {
+                    Debug.Log(mouv[i].y + " " + mouv[i].x);
+                    Drawn(new Vector3Int(mouv[i].y, mouv[i].x), _redMouvementTile);
+                }
             }
         }
     }

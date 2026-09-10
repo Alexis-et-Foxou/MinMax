@@ -23,17 +23,29 @@ namespace Pieces
             
             for (int i = Position.x -1; i >= 0; i--)
             {
-                movements.Add(new Vector2Int(i, Position.y));
+                Vector2Int movement = new Vector2Int(i, Position.y);
+                Piece otherPiece = piece[movement.x, movement.y];
+                if (otherPiece != null && otherPiece.Color == Color) break;
+                movements.Add(movement);
+                if (otherPiece != null && otherPiece.Color != Color) break;
             }
             
             for (int i = Position.x +1; i < 8; i++)
             {
-                movements.Add(new Vector2Int(Position.x, i));
+                Vector2Int movement = new Vector2Int(Position.x, i);
+                Piece otherPiece = piece[movement.x, movement.y];
+                if (otherPiece != null && otherPiece.Color == Color) break;
+                movements.Add(movement);
+                if (otherPiece != null && otherPiece.Color != Color) break;
             }
             
             for (int i = Position.x -1; i >= 0; i--)
             {
-                movements.Add(new Vector2Int(Position.x, i));
+                Vector2Int movement = new Vector2Int(Position.x, i);
+                Piece otherPiece = piece[movement.x, movement.y];
+                if (otherPiece != null && otherPiece.Color == Color) break;
+                movements.Add(movement);
+                if (otherPiece != null && otherPiece.Color != Color) break;
             }
         
             return movements;
