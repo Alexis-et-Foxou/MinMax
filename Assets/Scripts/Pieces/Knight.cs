@@ -11,13 +11,20 @@ namespace Pieces
         
         public Knight(PieceColor color) : base(color) { }
         
-        public override List<Vector2Int> GetMovements()
+        public override List<Vector2Int> GetMovements(Piece[,] piece)
         {
             List<Vector2Int> movements = new List<Vector2Int>();
-        
+            
+            movements.Add(new Vector2Int(2, 1));
+            movements.Add(new Vector2Int(2, -1));
+            movements.Add(new Vector2Int(-2, 1));
+            movements.Add(new Vector2Int(1, -2));
+            movements.Add(new Vector2Int(1, 2));
+            movements.Add(new Vector2Int(-1, 2));
+            movements.Add(new Vector2Int(-2, -1));
+            movements.Add(new Vector2Int(-1, -2));
+            
             return movements;
         }
-        
-        // Il est tard, j'ai pas trouvé de solution viable
     }
 }

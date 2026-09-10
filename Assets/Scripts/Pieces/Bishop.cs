@@ -10,7 +10,7 @@ namespace Pieces
             GameManager.Instance.WhiteBishopTile : GameManager.Instance.BlackBishopTile;
         
         public Bishop(PieceColor color) : base(color) { }
-        public override List<Vector2Int> GetMovements()
+        public override List<Vector2Int> GetMovements(Piece[,] piece)
         {
             List<Vector2Int> movements = new List<Vector2Int>();
             for (int i = 1; i < 7; i++)

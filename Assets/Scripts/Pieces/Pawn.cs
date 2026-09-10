@@ -9,7 +9,7 @@ namespace Pieces
         public override Tile Tile => Color == PieceColor.White ? 
             GameManager.Instance.WhitePawnTile : GameManager.Instance.BlackPawnTile;
 
-        public override List<Vector2Int> GetMovements()
+        public override List<Vector2Int> GetMovements(Piece[,] piece)
         {
             List<Vector2Int> movements = new List<Vector2Int>();
             if (Color == PieceColor.White)
